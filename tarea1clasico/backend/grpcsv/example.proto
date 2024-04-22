@@ -1,0 +1,20 @@
+syntax = 'proto3';
+
+message Item {
+    int32 target_sentiment = 1;
+    int64 id = 2;
+    string username = 3;
+    string content = 4;
+}
+
+message Response {
+    repeated Item items = 1;
+}
+
+message GetItemsRequest {
+    string name = 1;
+}
+
+service ItemService {
+    rpc GetItem(GetItemsRequest) returns (Response) {}
+}
